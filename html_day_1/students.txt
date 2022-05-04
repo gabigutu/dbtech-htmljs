@@ -1,0 +1,3 @@
+Gigel 23 5
+Vasilica 6 21
+# intr-un fisier txt ma bazez ca script-ul care citeste informatiile stie ce reprezinta aceste date (nestructurate)

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<!-- Gigel 23 5 // date nestructurate -->
+<students>
+    <student>
+        <!-- date structurate -->
+        <nume>
+            <![CDATA[Gigel <Ionescu>]]>
+        </nume>
+        <!-- <nume2>Gigel <Ionescu></nume2> -->
+        <nume3 lang="RO">Băsescu</nume3>
+        <nume3 lang="EN">Basescu</nume3>
+        <nume3 lang='FR'>B&apos;sescu &lt; &#0931;</nume3>
+        <varsta>23</varsta>
+        <nota>5</nota>
+        <admis></admis>
+        <admis2 />
+        <adresa>
+            <strada>
+                <nume_complet>
+                    Florilor
+                    <numar>14</numar>
+                </nume_complet>
+            </strada>
+        </adresa>
+        <!-- comentariu 
+    daad
+    dadaad
+    -->
+    </student>
+    <student>
+        <nume>Vasile</nume>
+        <varsta>22</varsta>
+        <nota>8</nota>
+    </student>
+</students>
