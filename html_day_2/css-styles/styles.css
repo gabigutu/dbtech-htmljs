@@ -1,0 +1,37 @@
+table .dangerous-country { /* toate elementele care au clasa .dangerous-country si sunt copii, nepoti, etc. ai lui table */
+    color: #75da43;
+    background-color: rgb(117, 218, 43);
+    /*
+    0 - 9 => valori zecimale (10 cifre)
+    valori hexazecimale => 16 cifre: 0-15 (0 - 9, a, b, c, d, e, f)
+    bdcda (hex) => ?? (dec)
+    16 ^ 0 * a + 16 ^ 1 * d + 16 ^ 2 * c + 16 ^ 3 * d + ... = 
+    da (hex) => ?? (dec)
+    16 ^ 0 * a + 16 ^ 1 * d = 1 * 10 + 16 * 13 = 218
+    75 (hex) => ?? (dec)
+    16 ^ 0 * 5 + 16 ^ 1 * 7 = 1 * 5 + 16 * 7 = 117
+    */
+}
+
+html > body table > tbody > .dangerous-country, pre { /* urat de scris asa */
+    color: blue;
+    background-color: cyan;
+}
+
+input[type=checkbox] {
+    cursor: pointer;
+}
+
+input[type] {
+    margin: 20px;
+}
+
+input[type=file] {
+    left: 40px;
+}
+
+p.margins {
+    padding: 5px;
+    margin: 3px;
+    border: 1px;
+}
