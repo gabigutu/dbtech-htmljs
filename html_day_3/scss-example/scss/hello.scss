@@ -1,0 +1,17 @@
+$font-stack: Helvetica, Verdana, Arial, sans-serif;
+$primary-color: #9988ff;
+
+body {
+    font: 100% $font-stack;
+    color: $primary-color;
+}
+
+p {
+    color: $primary-color;;
+}
+
+td {
+    background-color: $primary-color;
+}
+
+/* .... */
