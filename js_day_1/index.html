@@ -13,12 +13,22 @@
             </tbody>
         </table>
         <button onclick="addStudentPrompt()">Add</button>
+        <input type="checkbox">Passed
         <script>
             const studentTable = document.getElementById("student_table");
             //studentTable = ""; ERROR
+            var result = document.getElementsByTagName("input");
+            console.log(result);
+
             const addStudentPrompt = (passed) => {
                 const studentName = prompt("Student name");
-                studentTable.innerHTML += "<tr><td>"+studentName+"</td></tr>";
+                studentTable.innerHTML += "<tr><td name = '"+studentName + "'>"+studentName+"</td></tr>";
+                if(result[0].checked == true)
+                    document.getElementsByName(studentName)[0].style.color ="green";
+                else
+                    document.getElementsByName(studentName)[0].style.color = "red";
+                    // studentTable.innerHTML += `<tr><td name = "${studentName}">`+studentName+"</td></tr>";
+                
             }
         </script>
     </body>
