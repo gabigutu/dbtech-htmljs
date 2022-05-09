@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <table>
+            <thead>
+                <td>Name</td>
+            </thead>
+            <tbody id = "student_table">
+
+            </tbody>
+        </table>
+        <button onclick="addStudentPrompt()">Add</button>
+        <script>
+            const studentTable = document.getElementById("student_table");
+            //studentTable = ""; ERROR
+            const addStudentPrompt = (passed) => {
+                const studentName = prompt("Student name");
+                studentTable.innerHTML += "<tr><td>"+studentName+"</td></tr>";
+            }
+        </script>
+    </body>
+</html>
