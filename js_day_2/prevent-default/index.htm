@@ -15,6 +15,9 @@
         <script>
             var submitButton = document.getElementById('submitButton');
             submitButton.addEventListener('click', function(event) {
+                console.log('You clicked on ', event.target);
+                var theButton = event.target;
+                console.log('Button value: ' + theButton.value);
                 event.preventDefault();
                 console.log('Form submission stopped by prevent default');
             })
