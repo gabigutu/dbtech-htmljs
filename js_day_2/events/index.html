@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <style>
+        .genius {
+            background-color: gray;
+            width: 300px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <img class="genius" src="https://s13emagst.akamaized.net/layout/ro/static-upload/logo-emag-genius-lp.svg" />
+
+    <img class="genius" src="https://www.google.ro/images/branding/googlelogo/2x/googlelogo_light_color_272x92dp.png" />
+
+    <script>
+        var html = document.getElementsByTagName('html')[0];
+        html.addEventListener('mouseover', function () {
+            console.log('You entered the html area');
+        });
+        html.addEventListener('mouseout', function () {
+            console.log('You left the html area');
+        });
+
+        var body = document.getElementsByTagName('body')[0];
+        body.addEventListener('mouseover', function () {
+            console.log('You entered the body area');
+        });
+        body.addEventListener('mouseout', function () {
+            console.log('You left the body area');
+        });
+        var imgs = document.getElementsByTagName('img'); // array of elements
+        for (var img of imgs) {
+            img.addEventListener('mouseover', function (event) {
+                event.stopPropagation(); // conteaza ordinea?
+                console.log('You entered the image area');
+            });
+            img.addEventListener('mouseout', function () {
+                console.log('You left the image area');
+            });
+        }
+    </script>
+
+</body>
+
+</html>
