@@ -1,0 +1,23 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <form action="/send.php" method="POST">
+            <label for="subject">Subject:</label>
+            <input id="subject" type="text" name="subject1" /> 
+            <label for="email">Email:</label>
+            <input id="email" type="email" name="email1" /> 
+
+            <input id="submitButton" type="submit" value="Send data" />
+        </form>
+
+        <script>
+            var submitButton = document.getElementById('submitButton');
+            submitButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                console.log('Form submission stopped by prevent default');
+            })
+        </script>
+    </body>
+</html>
