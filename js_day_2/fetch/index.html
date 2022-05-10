@@ -1,0 +1,25 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            let result = fetch('https://jsonplaceholder.typicode.com/users').then(
+                data => { // I expected the data to be a JSON string
+                    console.log('I Received', data);
+                    return data.json(); // I convert the string to an object
+                }
+            ).then(
+                someObject => { // I expect to receive an object from the previous then
+                    console.log('I received the following objects', someObject);
+                    return someObject[0].address.city;
+                }
+            ).then(
+                something => {
+                    console.log('The previous then send me the following data ', something);
+                }
+            )
+            console.log('Final result', result);
+        </script>
+    </body>
+</html>
