@@ -1,0 +1,39 @@
+<html>
+
+<head></head>
+
+<body>
+    <script>
+        let a = 4.3, b = 'Ana are mere', c = "Vasilica", d = true, e = [10, 'Abc', { a: 1, b: 'Noua', c: null }];
+        console.info(a, b, c, d, e, e[2]);
+        console.error(typeof a, typeof b, typeof c, typeof d, typeof e);
+        console.log('typeof e[2] = ' + typeof e[2]);
+        console.warn(e[0], e[1], e[2].a, e[2].b, e[2].c); 
+        console.log('e.a = ', e.a); // , vs = ?
+        console.log('typeof(e.a) = ', typeof(e.a));
+
+
+        console.log('undefined' === typeof(e.a)); // true
+        console.log(undefined === typeof(e.a)); // false
+        console.log('undefined' === e.a); // false
+        console.log(undefined === e.a); // true
+        // === vs ==
+        // === : valori si tipuri
+        // == : valori
+
+        console.log('undefined' == typeof(e.a)); // true
+        console.log(undefined == typeof(e.a)); // false (valoarea nimic vs. valoarea "undefined")
+        console.log('undefined' == e.a); // false (valoarea "undefined" vs. nimic)
+        console.log(undefined == e.a); // true
+
+        console.log('back on earth');
+        console.log('5' == 5); // true
+        console.log('5' === 5); // false
+
+        if (e.a == undefined) {
+            console.log('e.a is undefined');
+        }
+    </script>
+</body>
+
+</html>

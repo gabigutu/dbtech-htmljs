@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+</head>
+
+<body>
+    <table>
+        <thead>
+            <td>Name</td>
+            <td>Delete</td>
+        </thead>
+        <tbody id="student_table">
+
+        </tbody>
+    </table>
+    <button onclick="addStudentPrompt()">Add</button>
+    <input type="checkbox">Passed
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // console.info('DOMContentLoaded');
+            const studentTable = document.getElementById("student_table");
+            // studentTable == null
+            //studentTable = ""; ERROR
+            var result = document.getElementsByTagName("input");
+            console.log(result);
+
+            const addStudentPrompt = (passed) => {
+                const studentName = prompt("Student name");
+                studentTable.innerHTML += "<tr><td name = '" + studentName + "'>" + studentName + "</td></tr>";
+
+                const currentStudent = document.getElementsByName(studentName)[0];
+                const deleteTD = document.createElement("td");
+                const deleteButton = document.createElement("button");
+                deleteButton.innerText = "Remove";
+                const studentTR = currentStudent.parentElement;
+
+                deleteButton.onclick = () => {
+                    studentTR.remove();
+                };
+                deleteTD.appendChild(deleteButton);
+                studentTR.appendChild(deleteTD);
+
+
+                if (result[0].checked == true)
+                    currentStudent.style.color = "green";
+                else
+                    currentStudent.style.color = "red";
+                // studentTable.innerHTML += `<tr><td name = "${studentName}">`+studentName+"</td></tr>";
+            }
+        });
+    </script>
+</body>
+
+</html>
