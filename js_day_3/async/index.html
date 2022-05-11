@@ -1,0 +1,108 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <script>
+        async function myRequest() {
+            let result = await fetch('https://jsonplaceholder.typicode.com/users').then(
+                response => { // I expected the data to be a JSON string
+                    console.log('I Received', response);
+                    return response.json(); // I convert the string to an object
+                }
+            ).then(
+                someObject => { // I expect to receive an object from the previous then
+                    console.log('I received the following objects', someObject);
+                    return someObject[0].address.city;
+                }
+            ).then(
+                something => {
+                    console.log('The previous then send me the following data ', something);
+                }
+            )
+            console.log('Final result', result);
+        }
+        // myRequest();
+
+
+        // 1 (equivalent with 2)
+        function callWithThen() {
+            let firstPromise = fetch('https://jsonplaceholder.typicode.com/users').then(
+                firstResponse => {
+                    console.log('Received first response', firstResponse);
+                    return firstResponse.json();
+                }
+            ).then(firstUsers => {
+                console.log('Users[0] of first response', firstUsers[0]);
+            });
+            // console.log('Received first response', firstPromise);
+        }
+
+        // 2 (equivalent with 3)
+        async function callWithAwait() {
+            try {
+                let secondResponse = await fetch('https://jsonplaceholder.typicode.com/users');
+                console.log('Received second response', secondResponse);
+                let secondUsers = await secondResponse.json();
+                console.log('Users[0] of second response', secondUsers[0]);
+            } catch (err) {
+                // catches errors both in fetch and response.json
+                alert(err);
+            }
+        }
+
+        async function callWithThenAndAwait() {
+            let otherPromise = fetch('https://jsonplaceholder.typicode.com/users').then(
+                async otherResponse => {
+                    console.log('Received other response', otherResponse);
+                    otherUsers = await otherResponse.json();
+                    console.log('Users[0] of other users', otherUsers[0])
+                }
+            );
+        }  
+        
+        async function callWithThenAndAwait2() {
+            let arrayOfObjects = await fetch('https://jsonplaceholder.typicode.com/users').then(
+                otherResponse => {
+                    console.log('Received other response', otherResponse);
+                    return otherResponse.json();
+                }
+            );
+            console.log('Received array of objects', arrayOfObjects);
+            console.log('Users[0] of other users', arrayOfObjects[0])
+        }
+
+        // callWithThen();
+        // callWithAwait();
+        // callWithThenAndAwait();
+        // callWithThenAndAwait2();
+
+        async function callCallWithAwait() {
+            await callWithAwait();
+            console.log('Message printed from callCallWithAwait');
+        }
+
+        async function callCallWithThen() {
+            return callWithAwait().then(
+                response => {
+                    console.log('A venit raspunsul');
+                    console.log('Message printed from callCallWithAwait');
+                    return 'Ana are mere';
+                }
+            );
+        }
+        // callCallWithAwait();
+        // callCallWithThen();
+
+        async function callCallCallWithThen() {
+            var something = await callCallWithThen();
+            console.log('Some other message', something);
+        }
+        // callCallCallWithThen();
+
+    </script>
+</body>
+
+</html>
