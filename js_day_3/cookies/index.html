@@ -1,0 +1,30 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <script>
+        function printCookies() {
+            console.log('Cookies', document.cookie);
+        }
+
+        function addCookie(key, value) {
+            document.cookie = key + '=' + value;
+        }
+
+        printCookies();
+        addCookie('user', 'Vasile');
+        addCookie('varsta', 22);
+        printCookies();
+
+        var yourName = prompt('Yousr name?');
+        if (yourName) {
+            addCookie('name', yourName);
+            printCookies();
+        }
+    </script>
+</body>
+
+</html>
