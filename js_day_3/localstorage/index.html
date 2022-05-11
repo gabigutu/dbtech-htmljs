@@ -1,0 +1,26 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+        function printLocalStorage() {
+            var sb = '';
+            for (var i = 0; i < localStorage.length; i++) {
+                var key = localStorage.key(i);
+                sb += key + '=' + localStorage[localStorage.key(i)] + '; ';
+            }
+            console.log('local storage', sb);
+        }
+
+        function addLocalStorage(key, value) {
+            localStorage.setItem(key, value);
+        }
+
+        printLocalStorage();
+        addLocalStorage('nume', 'Vasile');
+        addLocalStorage('varsta', 22);
+        printLocalStorage();
+    </script>
+    </body>
+</html>
