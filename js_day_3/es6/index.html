@@ -1,0 +1,37 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <script>
+        function printAll(a, b, ...all) {
+            console.log(a); console.log(b); console.log(all);
+        }
+        printAll(1, 2, 3, 4, 5, 'test', true);
+        printAll(10, 9, 8);
+        printAll(20, 19);
+
+        printAll([1, 2], 3, 4);
+        console.log('Spread operator');
+        printAll(...[1, 2], 3, 4);
+
+        [a = 5, b = 7] = [1];
+        console.log(a, b);
+        [a = 5, b = 7] = [1, 2];
+        console.log(a, b);
+        [a = 5, , b = 7] = [1, 2, 3];
+        console.log(a, b);
+
+        var obj = { a: 1, b: true }
+        var { a, b } = obj;
+        console.log(a, b);
+
+        ({ a, b } = obj);
+        console.log(a, b);
+        
+    </script>
+</body>
+
+</html>
