@@ -1,0 +1,19 @@
+{
+  "name": "hello-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "json-server": "^0.17.0",
+    "moment": "^2.29.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "hel": "echo 'Hello'",
+    "start": "json-server --watch database.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
