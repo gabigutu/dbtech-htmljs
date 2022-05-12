@@ -1,0 +1,84 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <script>
+        function Person(first, age) {
+            this.firstName = first;
+            this.age = age;
+        }
+
+        var person1 = new Person('Vasile', 20);
+        var person2 = new Person('Gigel', 16);
+        console.log(person1, person2);
+        console.log(typeof person1, typeof person2, typeof Person);
+        console.log(person1.firstName, person1.age);
+
+        Person.prototype.job = 'Student';
+        console.log(person1, person2);
+        console.log(person1.job, person2.job);
+
+        person1.job = 'Engineer';
+        console.log(person1.job, person2.job);
+
+        var person3 = new Person('Ioana', 21);
+        console.log(person3, person3.job);
+
+        Person.prototype.caString = function () {
+            return this.firstName + ' (' + this.age + ' ani), ' + this.job;
+        }
+
+        console.log(person1.caString(), person2.caString(), person3.caString());
+        console.log(person1, person2, person3);
+
+        console.log(typeof Person.prototype);
+        console.log(person1.__proto__, person2.__proto__);
+        console.log(typeof person1.__proto__, person1.__proto__);
+        console.log(typeof person1.__proto__.__proto__, person1.__proto__.__proto__);
+        console.log(person1.__proto__.__proto__.__proto__);
+
+        console.log(Person.prototype, person1.__proto__, person2.__proto__);
+        person1.__proto__.country = 'Romania';
+        console.log(Person.prototype, person1.__proto__, person2.__proto__);
+
+        Person.prototype.grades = [5, 4, 6];
+        person1.grades.push(7);
+        console.log(person1.grades, person2.grades); // [5, 4, 6, 7], [5, 4, 6, 7];
+
+        Person.prototype.passed = false;
+        person1.passed = true;
+        console.log(person1.passed, person2.passed); // true, false
+
+        function Parent() {
+            this.parentName = 'parent';
+            console.log('creating parent');
+        }
+        Parent.prototype.getParentName = function () {
+            return this.parentName
+        }
+        function Child() {
+            this.childName = 'child';
+            console.log('creating child');
+        }
+
+        Child.prototype = new Parent(); // class Child extends Parent && constructor Child apeleaza super()
+        Child.prototype.getChildName = function () {
+            return this.childName;
+        }
+        var child = new Child();
+        console.log(child.getChildName(), child.getParentName());
+
+        console.log('parent test');
+        var parent = new Parent();
+        console.log(parent.getParentName());
+        console.log(parent.getChildName());
+
+
+
+    </script>
+</body>
+
+</html>
