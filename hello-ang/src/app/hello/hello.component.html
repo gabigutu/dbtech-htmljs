@@ -1,0 +1,9 @@
+<p>hello, {{name}} (age = {{userAge}})!</p>
+
+<label for="yourName">Your name:</label>
+<input id="yourName" type="text" (keyup)="nameKeyUp($event)" /> <!-- binding from view (html) to component (js/ts) -->
+
+<app-input-number test="ceva" [anotherTest]="altceva"></app-input-number>
+
+<label for="yourAge">Your age:</label>
+<!-- <input id="yourAge" type="number" [(value)]="userAge" /> -->
