@@ -1,0 +1,13 @@
+<ng-container *ngFor="let userTasks of tasks | keyvalue">
+    <div>
+        <h1>Tasks of user #{{userTasks.key}}</h1>
+        <ul class="list-group tasks">
+            <li class="list-group-item" *ngFor="let task of userTasks.value; index as i;"
+                [ngClass]="task.active === true ? 'active' : ''" (click)="setActive(i, task.userId)"
+                [title]="task.title">
+                <!-- active aria-current="true" -->
+                {{i}}. {{task.title}}
+            </li>
+        </ul>
+    </div>
+</ng-container>

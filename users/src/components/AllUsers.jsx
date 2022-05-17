@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Pagination from './Pagination';
 import User from './User';
 
 class AllUsers extends React.Component {
@@ -7,6 +8,9 @@ class AllUsers extends React.Component {
         this.state = {
             users: [],
         };
+        // const query = this.useQuery();
+        // console.log('id ', query.get('id'));
+
         fetch('https://jsonplaceholder.typicode.com/users').then((response) => {
             // console.log(response);
             response.json().then((users) => {
@@ -14,7 +18,17 @@ class AllUsers extends React.Component {
                 this.setState({ users });
             });
         });
+
+
     }
+
+    // useQuery() {
+
+    //     const { search } = useLocation();
+    
+    //     return React.useMemo(() => new URLSearchParams(search), [search]);
+    // }
+
     render() {
         return (
             <>
@@ -26,12 +40,17 @@ class AllUsers extends React.Component {
                                 name={object.name}
                                 email={object.email}
                                 key={i}
+                                showLink='true'
                             />
                         );
                     })}
                 </ul>
+                <Pagination start="7" />
             </>
         );
+    }
+
+    componentDidMount() {
     }
 }
 

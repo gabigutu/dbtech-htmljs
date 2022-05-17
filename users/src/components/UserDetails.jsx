@@ -1,25 +1,34 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import User from './User';
 
 import ReactDOM from 'react-dom';
 
 function useQuery() {
+
     const { search } = useLocation();
 
     return React.useMemo(() => new URLSearchParams(search), [search]);
 }
 
-function UserDetails() {
-    let query = useQuery();
+function useId() {
 
-    fetch('https://jsonplaceholder.typicode.com/users/' + query.get('id')).then(
+    let { id } = useParams();
+
+    return id;
+}
+
+function UserDetails() {
+    let idParam = useId();
+    console.log('idParam', idParam);
+
+    fetch('https://jsonplaceholder.typicode.com/users/' + idParam).then(
         (response) => {
             response
                 .json()
                 .then((object) =>
                     ReactDOM.render(
-                        <User name={object.name} email={object.email} />,
+                        <User name={object.name} email={object.email} showLink='0' />,
                         document.getElementsByTagName('div')[0]
                     )
                 );

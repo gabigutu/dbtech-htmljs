@@ -1,0 +1,6 @@
+ul.tasks {
+}
+
+ul.tasks > li {
+    cursor: pointer;
+}
