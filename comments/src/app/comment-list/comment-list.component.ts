@@ -2,8 +2,8 @@ import { Dictionary } from './../../../../todolist/src/app/tasks/idictionary';
 import { Component, OnInit } from '@angular/core';
 import { IComment } from './icomment';
 import _ from 'lodash';
-import { RequestServiceService } from '../services/request-service.service';
-import { FetchServiceService } from '../services/fetch-service.service';
+import { AxiosRequestService } from '../services/request-service.service';
+import { FetchRequestService } from '../services/fetch-service.service';
 
 @Component({
   selector: 'app-comment-list',
@@ -14,7 +14,7 @@ export class CommentListComponent implements OnInit {
 
   commentsByPost: Dictionary<IComment>; // why not Dictionary<IComment[]>
 
-  constructor(private requestService: FetchServiceService<IComment>) {
+  constructor(private requestService: FetchRequestService<IComment>) {
     this.commentsByPost = {};
   }
 

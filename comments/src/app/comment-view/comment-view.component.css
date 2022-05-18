@@ -1,0 +1,17 @@
+#meta > #email {
+    text-decoration: underline;
+    /* text-orientation: ; */
+}
+
+#navigationButtons > ul {
+    list-style-type: none;
+}
+
+#navigationButtons > ul > li {
+    display: block;
+    float: left;
+}
+
+#navigationButtons > ul > li.float-right {
+    float: right;
+}

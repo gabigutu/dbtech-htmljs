@@ -1,4 +1,4 @@
-import { IComment } from './../comment-list/icomment';
+import { IComment } from '../icomment';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({

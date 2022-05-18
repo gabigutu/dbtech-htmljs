@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>View comment</h1>
+    <h2>{{comment.name}}</h2>
+    <article>
+        <p>
+            <span id="meta">
+                Author: <span id="email"><a href="mailto:{{comment.email}}">{{comment.email}}</a></span>
+                Post ID: <span id="postid">{{comment.postId}}</span>
+                Comment ID: <span id="postid">{{comment.id}}</span>
+                <!-- {{comment.postId | number: '1.2-3'}} -->
+            </span>
+        </p>
+        <div [innerHTML]="comment.body | bodyPipe : '\n' : '<br />'">
+            <!-- Create paragraphs/new lines from \n -->
+        </div>
+    </article>
+    <footer>
+        <nav id="navigationButtons">
+            <ul>
+                <li><button type="button" class="btn btn-large btn-info" (click)="previous()">Previous</button></li>
+                <li class="float-right"><button type="button" class="btn btn-large btn-warning"
+                        (click)="next()">Next</button></li>
+            </ul>
+        </nav>
+    </footer>
+</div>
