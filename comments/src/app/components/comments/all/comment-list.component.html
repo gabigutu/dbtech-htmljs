@@ -1,14 +1,23 @@
 <div class="container">
     <h1>Comments</h1>
-    <ng-container *ngFor="let post of commentsByPost | keyvalue">
-        <h2>Post #{{post.key}}:</h2>
-        <p>{{post.value.length}} comments</p>
-        <div class="row">
-            <div *ngFor="let comment of post.value" class="col-sm-12 col-md-6 col-lg-3 col-xl-2">
-                <app-comment [comment]="comment" (postDetailsEmitter)="getPost($event)" [post]="subcomponentPost"
-                    [triggeredCommentId]="triggeredCommendId">
-                </app-comment>
+    <ng-container *ngFor="let post of commentsByPost | keyvalue; let i = index">
+        <!-- page: 3 ; perPage: 2 => i between [2; 4)
+        page: 1 ; perPage : 2 => i between [0; 2) -->
+        <!-- page: 0 ; perPage : 2 => i between [-1, 1) don't allow this -->
+        <!-- i = [0, ...]
+        page = [1, ...] -->
+        <ng-container *ngIf="i >= pagination.page - 1 && i < pagination.page - 1 + pagination.perPage">
+            <h2>Post #{{post.key}}:</h2>
+            <p>{{post.value.length}} comments</p>
+            <div class="row">
+                <div *ngFor="let comment of post.value" class="col-sm-12 col-md-6 col-lg-3 col-xl-2">
+                    <app-comment [comment]="comment" (postDetailsEmitter)="getPost($event)" [post]="subcomponentPost"
+                        [triggeredCommentId]="triggeredCommendId">
+                    </app-comment>
+                </div>
             </div>
-        </div>
+            <button class="btn btn-large btn-info" (click)="prev()">Prev</button>
+            <button class="btn btn-large btn-info" (click)="next()">Next</button>
+        </ng-container>
     </ng-container>
 </div>

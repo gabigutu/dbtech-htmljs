@@ -9,6 +9,12 @@ const routes: Routes = [{
 }, {
   path: 'details/:id',
   component: CommentViewComponent
+}, {
+  path: ':page',
+  component: CommentListComponent
+}, {
+  path: ':page/:perPage',
+  component: CommentListComponent
 }];
 
 @NgModule({
