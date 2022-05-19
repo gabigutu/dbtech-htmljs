@@ -46,7 +46,8 @@ export class CommentListComponent implements OnInit {
         }
         console.log('Pagination is', this.pagination);
         if (this.pagination.page <= 0) {
-          this.router.navigate([1, this.pagination.perPage]);
+          this.router.navigate([1, this.pagination.perPage]); // ts (angular router)
+          // window.location.href = '/1/' + this.pagination.perPage; // js pur
         }
       },
       error: errorResponse => {
