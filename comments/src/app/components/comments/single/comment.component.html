@@ -1,0 +1,14 @@
+<div class="card">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">#{{comment.id}} {{comment.name}}</h5>
+        <p class="card-text">{{comment.body}}</p>
+        <a href="mailto:{{comment.email}}" class="btn btn-primary">{{comment.email}}</a>
+        <a [routerLink]="['details', comment.id]" class="btn btn-info">View comment</a>
+        <button (click)="showArticle()">Show article</button>
+    </div>
+    <div class="card-body" *ngIf="comment.postId === post.id && triggeredCommentId === comment.id">
+        <h6>Post #{{post.id}}</h6>
+        <article>{{post.title}}</article>
+    </div>
+</div>

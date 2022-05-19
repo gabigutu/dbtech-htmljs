@@ -1,9 +1,9 @@
-import { IComment } from './../comment-list/icomment';
-import { FetchRequestService } from './../services/fetch-service.service';
-import { AxiosRequestService } from './../services/request-service.service';
+import { AxiosRequestService } from './../../../services/request-service.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
+import { FetchRequestService } from 'src/app/services/fetch-service.service';
+import { IComment } from '../model/icomment';
 
 @Component({
   selector: 'app-comment-view',
